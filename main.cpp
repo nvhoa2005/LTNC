@@ -253,7 +253,7 @@ int main(){
             cout << "Khoan thanh toan cuoi cung voi ngan hang la : " << res << endl;
             break;
         }
-        cout << "So tien du no cua sinh vien dau thang " << i+1 << " la : " << vay << endl;
+        cout << "So tien du no cua sinh vien dau thang thu" << i+1 << " la : " << vay << endl;
         if(i == n){
             cout << "---------------------" << endl;
             cout << "Sinh vien chua tra du so tien" << endl;
