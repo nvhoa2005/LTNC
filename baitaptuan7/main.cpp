@@ -1,4 +1,137 @@
-Bài tập
+A.Thực hành
+1.
+char str[50] = "Hello World";
+char *p1 = str;
+char *p2 = &str[0];
+if(p1 == p2) cout << "EQUA";
+if(p1[5] == ' ') *(p2+5) = '-';
+p1 = NULL;
+p2 = NULL;
+str = NULL;
+-> error: incompatible types in assignment
+
+
+int a = 20, b = 25, c = 30;
+const int* pA = &a;
+int *const pB = &b;
+const int*const pC = &c;
+*pA++ -> read-only
+*pB++; *pC++ -> read-only
+
+pB = NULL;
+-> read-only
+pC = NULL;
+-> read-only
+2.
+#include <bits/stdc++.h>
+using namespace std;
+int check(int a[]){
+    return sizeof(a);
+}
+int main(){
+    int a[] = {1, 2, 3, 4, 5};
+    cout << sizeof(a) << endl;
+    cout << check(a) << endl;
+    return 0;
+}
+-> sizeof bên trong hàm tương đương với sizeof phần tử đầu tiên của mảng.
+3.
+#include <bits/stdc++.h>
+using namespace std;
+int count_even(int* a, int n){
+    int cnt = 0;
+    for(int i = 0; i < n; i++){
+        if(*(a+i) % 2 == 0) cnt++;
+    }
+    return cnt;
+}
+int main(){
+    int a[] = {1, 2, 3, 4, 5};
+    cout << count_even(a, 5) << endl;
+    return 0;
+}
+4.
+#include <bits/stdc++.h>
+using namespace std;
+int binsear(int *a, int n, int find){
+    int l = 0, r = n-1;
+    while(l <= r){
+        int m = (l+r)/2;
+        if(*(a+m) == find){
+            return m;
+        }
+        else if(*(a+m) < find){
+            l = m+1;
+        }
+        else{
+            r = m-1;
+        }
+    }
+    return 0;
+}
+int main(){
+    int a[] = {1, 3, 5, 8, 10, 15};
+    int n = 6;
+    int find = 5;
+    if(binsear(a, n, find))
+        cout << binsear(a, n, find) << endl;
+    //-> 2
+    return 0;
+}
+5.
+#include <bits/stdc++.h>
+using namespace std;
+char* weird_string() {
+   char c[] = "123345";
+   return c;
+}
+int main(){
+    char *c = weird_string();
+    cout << c << endl;
+    return 0;
+}
+6.
+#include <bits/stdc++.h>
+using namespace std;
+void in(int *a, int n){
+    for(int i = 0; i < n; i++){
+        cout << a[i] << " ";
+    }
+    cout << endl;
+}
+int main(){
+    int n = 5;
+    int a[n] = {1, 2, 3, 4, 5};
+    in(a, n);
+    return 0;
+}
+7.
+#include <bits/stdc++.h>
+using namespace std;
+int cnt(const char* a, const char* b){
+    int n1 = strlen(a);
+    int n2 = strlen(b);
+    int cnt = 0;
+    for(int i = 0; i < n2; i++){
+        char c[n1];
+        for(int j = 0; j < n1; j++){
+            c[j] = b[i+j];
+        }
+        if(strcmp(a, c) == 0){
+            cnt++;
+            i+=2;
+        }
+    }
+    return cnt;
+}
+int main(){
+    const char a[] = "abc";
+    const char b[] = "abcdabcdabcabcabcde";
+    cout << cnt(a, b) << endl;
+    return 0;
+}
+
+C.Bài tập
 1.
 #include <bits/stdc++.h>
 using namespace std;

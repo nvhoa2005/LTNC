@@ -1,0 +1,42 @@
+Phần B)
+1: địa chỉ của c là 0x1234, địa chỉ của d là 0x5678
+    char c = ‘A', d = ‘B';
+    char* p1 = &c;
+    char* p2 = &d;
+    char* p3;
+    p3 = &d;
+    cout << “*p3 = “ << *p3 << “, p3 = “ << p3 << endl;
+    p3 = p1;
+    cout << “*p3 = “ << *p3 << “, p3 = “ << p3 << endl;
+    *p1 = *p2;
+    cout << “*p1 = “ << *p1 << “, p1 = “ << p1 << endl;
+
++ Dòng thứ nhất con trỏ p3 lưu địa của của biến d nên *p3 sẽ lưu giá trị của d
+-> *p3 = ‘B’ và p3 = 0x5678
++ Dòng thứ hai con trỏ p3 lưu giá trị của con trỏ p1 nên *p3 sẽ lưu giá trị của *p1
+-> *p3 = ‘A’ và p3 = 0x1234
++ Dòng thứ ba giá trị con trỏ p1 được gán bằng giá trị con trỏ p2 và địa chỉ kh thay đổi
+-> *p1 = ‘B’ và p1 = 0x1234
+2: 
+Cho các lệnh sau.
+int *p;
+int i;
+int k;
+i = 4;
+k = i;
+p = &i;
+
+(Những) lệnh nào trong số các lệnh dưới đây sẽ gán cho i giá trị 5?
+k = 5;
+*k = 5;
+p = 5;
+*p = 5;
+
+-> lệnh *p = 5 thì nó sẽ gán thành công
+
+3:
+Giải thích lỗi sau:
+char c = ‘C';
+double *p = &c;
+
+-> Do *p lưu giá trị kiểu double nên nó sẽ gặp lỗi khi p lưu địa chỉ của một biến char
