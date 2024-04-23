@@ -51,6 +51,22 @@ int main(){
 // Để giải phóng mảng động cần delete[];
 // c là một con trỏ tới một phần mảng ban đầu chứ không phải là con trỏ đến mảng động nên không thể dùng delete để giải phóng vùng nhớ
 4.
+#include <iostream>
+using namespace std;
+int* make(int x) {
+    int local = x;
+    return &local;
+}
+//Sau khi kết thúc hàm make thì vùng nhớ của biến local được giải phóng
+
+int main() {
+    int* ptr = make(5);
+    //->Truy cập đến vùng nhớ không hợp lệ
+    cout << *ptr << endl;
+    //->Dẫn đến kết quả không xác định
+    delete ptr;
+    return 0;
+}
 
 
 C.Câu hỏi
